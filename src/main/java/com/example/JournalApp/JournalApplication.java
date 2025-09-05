@@ -7,11 +7,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.MongoTransactionManager;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableTransactionManagement
+@EnableScheduling
 public class JournalApplication {
 
 	public static void main(String[] args) {
@@ -19,6 +22,7 @@ public class JournalApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(JournalApplication.class, args);
 
 		ConfigurableEnvironment environment = context.getEnvironment();
+		System.out.println("Spring Boot Application Run Successfully!!");
 		System.out.println("Active Profile : " + environment.getActiveProfiles()[0]);
 
 	}
@@ -26,6 +30,11 @@ public class JournalApplication {
 	@Bean
 	public PlatformTransactionManager add(MongoDatabaseFactory dbFactory){
 		return new MongoTransactionManager(dbFactory);
+	}
+
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
 	}
 }
 //PlatformTransactionManager -> Implements -> MongoTransactionManager

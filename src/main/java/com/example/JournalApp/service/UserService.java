@@ -7,17 +7,27 @@ import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 @Slf4j
 public class UserService {
+
+    @Value("${spring.profiles.active:DefaultValue}")
+    private String activeProfile;
+
+    @Value("#{systemProperties['os.name']}")
+    private String osName;
+
 
         @Autowired
         private UserRepository userRepository;
@@ -40,9 +50,9 @@ public class UserService {
 //                logger.error("Error Occurred {}: ",user.getUserName(),e);
 //                slf4j annotation:
                 log.error("Error Occurred {}: ",user.getUserName());
-                log.error("Error Occurred {}: ",user.getUserName());
-                log.error("Error Occurred {}: ",user.getUserName());
-
+//                log.error("Error Occurred {}: ",user.getUserName());
+//                log.error("Error Occurred {}: ",user.getUserName());
+                   log.warn("@Valueeeeeeeeeeeeeeeee : {}\n Operating System : {}\n",activeProfile,osName);
 //                logger.warn("Error Occurred : ",e);
 //                logger.info("Error Occurred : ",e);
 //                logger.debug("Error Occurred : ",e);

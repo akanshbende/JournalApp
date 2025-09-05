@@ -3,6 +3,7 @@ package com.example.JournalApp.entity;
 
 // This is POJO - Plain Old Java Object
 
+import com.example.JournalApp.enums.Sentiment;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Document(collection = "journal_entries") // Mongodb ke collections se mapped entity hai
-@Data
+@Data // Project Lombok annotation
 @NoArgsConstructor
 public class JournalEntry {
 
@@ -29,6 +30,8 @@ public class JournalEntry {
     public LocalDateTime getDate() {
         return date;
     }
+
+    private Sentiment sentiment;
 
 //    public void setDate(LocalDateTime date) {
 //        this.date=date;
