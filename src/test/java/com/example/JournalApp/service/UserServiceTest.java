@@ -1,6 +1,5 @@
-package com.example.JournalApp;
+package com.example.JournalApp.service;
 
-import com.example.JournalApp.entity.User;
 import com.example.JournalApp.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
