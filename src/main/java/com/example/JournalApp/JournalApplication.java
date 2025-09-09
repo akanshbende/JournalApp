@@ -23,7 +23,7 @@ public class JournalApplication {
 
 		ConfigurableEnvironment environment = context.getEnvironment();
 		System.out.println("Spring Boot Application Run Successfully!!");
-		System.out.println("Active Profile : " + environment.getActiveProfiles()[0]);
+//		System.out.println("Active Profile : " + environment.getActiveProfiles()[0]);
 
 	}
 

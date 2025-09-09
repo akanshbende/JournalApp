@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-@Profile("dev")
+//@Profile("dev")
 public class WeatherService {
 
     @Value("${weather.api.key}")
