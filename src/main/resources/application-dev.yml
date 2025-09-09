@@ -1,10 +1,6 @@
 spring:
   profiles:
     active: dev
-  server:
-    port: ${SERVER_PORT}
-    servlet:
-      context-path: /journal
   data:
     mongodb:
       uri:  ${MONGODB_URL}
@@ -33,7 +29,10 @@ spring:
     ssl:
       enabled: true
 
-
+  server:
+    port: ${SERVER_PORT}
+    servlet:
+      context-path: /journal
 
 weather:
   api:
