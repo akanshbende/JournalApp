@@ -29,10 +29,10 @@ spring:
     ssl:
       enabled: true
 
-  server:
-    port: ${SERVER_PORT}
-    servlet:
-      context-path: /journal
+server:
+  port: ${SERVER_PORT}
+  servlet:
+    context-path: /journal
 
 weather:
   api:
