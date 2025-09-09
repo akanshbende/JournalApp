@@ -1,0 +1,59 @@
+spring:
+  server:
+    port: ${SERVER_PORT}
+    servlet:
+      context-path: /journal
+  data:
+    mongodb:
+      uri:  ${MONGODB_URL}
+      database: ${MONGO_DATABASE}
+      auto-index-creation:  true
+      ssl:
+        enabled:  true
+  main:
+    allow-circular-references:  true
+  mail:
+    host: smtp.gmail.com
+    port: ${EMAIL_SENDER_PORT}
+    username: ${EMAIL_SENDER}
+    password: ${EMAIL_SENDER_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    username: default
+    password: ${REDIS_PASSWORD}
+    ssl:
+      enabled: true
+
+
+
+weather:
+  api:
+    key:  ${WEATHER_API_KEY}
+
+# Custom Logs - NOT RECOMMANDED TO CONFIGURE IN .YML FILE.
+
+#logging:
+#  level:
+#    com:
+#      example:
+#        JournalApp: DEBUG
+
+#logging:
+#  level:
+#    root: DEBUG
+
+#logging:
+#  level:
+#    com:
+#      example:
+#        JournalApp:
+#          service:
+#            UserService:  DEBUG
+
